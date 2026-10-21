@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Espaciales | Información</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6fc;
+            color: #172b4d;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #071832;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #55d5ff;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #55d5ff;
+        }
+
+        .hero {
+            min-height: 400px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 35px;
+            color: white;
+            background:
+                radial-gradient(circle at 80% 30%, #1766a5, transparent 35%),
+                linear-gradient(125deg, #071832, #0b376b);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            color: #75e2ff;
+            border: 1px solid #3988b7;
+            border-radius: 30px;
+            padding: 7px 15px;
+            margin-bottom: 22px;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #55d5ff;
+        }
+
+        .hero p {
+            max-width: 520px;
+            color: #d0e1f6;
+            font-size: 15px;
+            margin-bottom: 28px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #24a9e0;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #087eb9;
+            transform: translateY(-3px);
+        }
+
+        .planeta {
+            width: 175px;
+            height: 175px;
+            min-width: 175px;
+            margin: 30px 55px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 30% 25%,
+                #a5efff,
+                #38a8e4 35%,
+                #12539c 68%,
+                #071832
+            );
+            box-shadow: 0 0 55px rgba(85, 213, 255, 0.35);
+            position: relative;
+        }
+
+        .planeta::before {
+            content: "";
+            position: absolute;
+            width: 225px;
+            height: 65px;
+            border: 5px solid #8be9ff;
+            border-left-color: #378ac3;
+            border-right-color: #b3f2ff;
+            border-radius: 50%;
+            top: 52px;
+            left: -29px;
+            transform: rotate(-25deg);
+        }
+
+        .planeta::after {
+            content: "✦";
+            position: absolute;
+            color: #a4efff;
+            font-size: 35px;
+            top: -38px;
+            right: -50px;
+        }
+
+        .resumen {
+            max-width: 1000px;
+            margin: -25px auto 0;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .resumen-contenido {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(16, 48, 85, 0.1);
+            overflow: hidden;
+        }
+
+        .resumen-item {
+            padding: 24px 12px;
+            text-align: center;
+        }
+
+        .resumen-item + .resumen-item {
+            border-left: 1px solid #e5edf7;
+        }
+
+        .resumen-item h3 {
+            color: #1266ad;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .resumen-item p {
+            color: #738197;
+            font-size: 12px;
+        }
+
+        .seccion {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 30px;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo small,
+        .subtitulo {
+            color: #1688c4;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .titulo h2 {
+            color: #10294b;
+            font-size: 32px;
+            line-height: 1.3;
+            margin: 12px 0;
+        }
+
+        .titulo h2 span {
+            color: #1688c4;
+        }
+
+        .titulo p {
+            color: #6d7c91;
+            max-width: 650px;
+            margin: auto;
+            font-size: 14px;
+        }
+
+        .nosotros {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .ilustracion {
+            min-height: 310px;
+            border-radius: 18px;
+            background:
+                radial-gradient(circle, #174c82, transparent 60%),
+                linear-gradient(140deg, #071832, #104c83);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8ceaff;
+            font-size: 100px;
+            box-shadow: 0 12px 30px rgba(8, 39, 77, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ilustracion::before,
+        .ilustracion::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(140, 234, 255, 0.35);
+            border-radius: 50%;
+        }
+
+        .ilustracion::before {
+            width: 240px;
+            height: 240px;
+        }
+
+        .ilustracion::after {
+            width: 180px;
+            height: 180px;
+        }
+
+        .ilustracion span {
+            z-index: 1;
+        }
+
+        .texto-nosotros h2 {
+            font-size: 31px;
+            line-height: 1.3;
+            margin: 10px 0 18px;
+        }
+
+        .texto-nosotros h2 span {
+            color: #1688c4;
+        }
+
+        .texto-nosotros p {
+            color: #68788e;
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .lista {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .lista li {
+            margin: 12px 0;
+            font-size: 13px;
+            font-weight: bold;
+            color: #234261;
+        }
+
+        .lista li span {
+            color: #1688c4;
+            margin-right: 10px;
+        }
+
+        .fondo-azul-claro {
+            background: #e8f1fb;
+        }
+
+        .tarjetas {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 30px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 32px;
+            border-radius: 15px;
+            border: 1px solid #e0eaf6;
+            box-shadow: 0 8px 25px rgba(12, 46, 84, 0.06);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(12, 46, 84, 0.12);
+        }
+
+        .tarjeta::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, #1467b1, #55d5ff);
+        }
+
+        .icono {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: #e0f5ff;
+            color: #126bb0;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .tarjeta h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #10294b;
+        }
+
+        .tarjeta p {
+            color: #68788e;
+            font-size: 13px;
+        }
+
+        .objetivo-general {
+            background: linear-gradient(120deg, #071832, #104c83);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 35px;
+            border-left: 5px solid #55d5ff;
+        }
+
+        .objetivo-general h3 {
+            color: #7ce3ff;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .objetivo-general p {
+            color: #d7e7f8;
+            font-size: 14px;
+        }
+
+        .objetivos-especificos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .objetivo {
+            background: white;
+            padding: 25px;
+            border: 1px solid #e0eaf6;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .objetivo:hover {
+            border-color: #55bfe9;
+            transform: translateY(-5px);
+        }
+
+        .numero {
+            color: #1688c4;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .objetivo h4 {
+            color: #183958;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .objetivo p {
+            color: #6d7c91;
+            font-size: 12px;
+        }
+
+        .mensaje-final {
+            margin: 0 auto 75px;
+            max-width: 1040px;
+            padding: 40px 25px;
+            text-align: center;
+            border-radius: 17px;
+            color: white;
+            background:
+                radial-gradient(circle at 10% 10%, #164b7d, transparent 40%),
+                linear-gradient(120deg, #071832, #104c83);
+        }
+
+        .mensaje-final h2 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .mensaje-final p {
+            max-width: 650px;
+            margin: auto;
+            color: #d3e4f7;
+            font-size: 13px;
+        }
+
+        footer {
+            background: #061126;
+            color: #aabbd1;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #55d5ff;
+        }
+
+        @media (max-width: 750px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                justify-content: center;
+                text-align: center;
+                padding: 55px 25px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .planeta {
+                margin: 40px 50px;
+            }
+
+            .nosotros {
+                grid-template-columns: 1fr;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .objetivos-especificos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 16px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .resumen-contenido {
+                grid-template-columns: 1fr;
+            }
+
+            .resumen-item + .resumen-item {
+                border-left: none;
+                border-top: 1px solid #e5edf7;
+            }
+
+            .seccion {
+                padding: 60px 20px;
+            }
+
+            .titulo h2 {
+                font-size: 27px;
+            }
+
+            .objetivos-especificos {
+                grid-template-columns: 1fr;
+            }
+
+            .mensaje-final {
+                margin: 0 15px 55px;
+            }
+
+            .mensaje-final h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">✦ PRODUCTOS <span>ESPACIALES</span></div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#mision">Misión y visión</a>
+            <a href="#objetivos">Objetivos</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+            <div class="hero-text">
+                <div class="etiqueta">NUESTRA EMPRESA</div>
+
+                <h1>
+                    Exploramos ideas,
+                    <span>creamos futuro.</span>
+                </h1>
+
+                <p>
+                    Conoce nuestra identidad, nuestros propósitos y los
+                    objetivos que guían el desarrollo de Productos Espaciales.
+                </p>
+
+                <a href="#nosotros" class="boton">
+                    Conócenos más →
+                </a>
+            </div>
+
+            <div class="planeta"></div>
+        </section>
+
+        <section class="resumen">
+            <div class="resumen-contenido">
+                <div class="resumen-item">
+                    <h3>Innovación</h3>
+                    <p>Ideas para avanzar</p>
+                </div>
+
+                <div class="resumen-item">
+                    <h3>Calidad</h3>
+                    <p>Compromiso constante</p>
+                </div>
+
+                <div class="resumen-item">
+                    <h3>Confianza</h3>
+                    <p>Relaciones duraderas</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion nosotros" id="nosotros">
+            <div class="ilustracion">
+                <span>✦</span>
+            </div>
+
+            <div class="texto-nosotros">
+                <div class="subtitulo">Nuestra identidad</div>
+
+                <h2>¿Quiénes <span>somos?</span></h2>
+
+                <p>
+                    Productos Espaciales es una empresa orientada a ofrecer
+                    productos de calidad, procurando satisfacer las
+                    necesidades de sus clientes mediante la responsabilidad,
+                    la innovación y la mejora continua.
+                </p>
+
+                <p>
+                    Nos enfocamos en el crecimiento, la atención al cliente
+                    y el desarrollo de soluciones que contribuyan a generar
+                    confianza y experiencias positivas.
+                </p>
+
+                <ul class="lista">
+                    <li><span>✓</span> Atención al cliente</li>
+                    <li><span>✓</span> Calidad y responsabilidad</li>
+                    <li><span>✓</span> Innovación y crecimiento</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="fondo-azul-claro" id="mision">
+            <div class="titulo" style="padding: 70px 20px 0;">
+                <small>Nuestro propósito</small>
+                <h2>Misión y <span>visión</span></h2>
+                <p>
+                    Conoce los principios que orientan nuestras actividades
+                    y el futuro que queremos construir.
+                </p>
+            </div>
+
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <div class="icono">◎</div>
+                    <h3>Nuestra misión</h3>
+                    <p>
+                        Ofrecer productos de calidad que respondan a las
+                        necesidades de nuestros clientes, mediante un
+                        servicio responsable, eficiente e innovador,
+                        promoviendo la satisfacción y la confianza.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">✧</div>
+                    <h3>Nuestra visión</h3>
+                    <p>
+                        Ser una empresa reconocida por la calidad de sus
+                        productos, la confianza de sus clientes y su
+                        capacidad de innovación, creciendo de manera
+                        sostenible y aprovechando nuevas oportunidades.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="seccion" id="objetivos">
+            <div class="titulo">
+                <small>Nuestras metas</small>
+                <h2>Objetivos <span>empresariales</span></h2>
+                <p>
+                    Trabajamos con metas que nos ayudan a mejorar nuestros
+                    resultados y alcanzar un crecimiento constante.
+                </p>
+            </div>
+
+            <div class="objetivo-general">
+                <h3>✦ Objetivo general</h3>
+                <p>
+                    Satisfacer las necesidades de los clientes mediante
+                    productos de calidad y un servicio responsable,
+                    fortaleciendo el crecimiento de la empresa, la
+                    innovación y la mejora continua.
+                </p>
+            </div>
+
+            <h3 style="margin-bottom: 22px; color: #10294b;">
+                Objetivos específicos
+            </h3>
+
+            <div class="objetivos-especificos">
+                <article class="objetivo">
+                    <div class="numero">01.</div>
+                    <h4>Garantizar la calidad</h4>
+                    <p>
+                        Ofrecer productos que cumplan con las expectativas
+                        y necesidades de los clientes.
+                    </p>
+                </article>
+
+                <article class="objetivo">
+                    <div class="numero">02.</div>
+                    <h4>Mejorar la atención</h4>
+                    <p>
+                        Brindar un servicio cordial, eficiente y oportuno.
+                    </p>
+                </article>
+
+                <article class="objetivo">
+                    <div class="numero">03.</div>
+                    <h4>Impulsar la innovación</h4>
+                    <p>
+                        Aplicar nuevas ideas para mejorar los productos
+                        y procesos de trabajo.
+                    </p>
+                </article>
+
+                <article class="objetivo">
+                    <div class="numero">04.</div>
+                    <h4>Promover el crecimiento</h4>
+                    <p>
+                        Desarrollar estrategias que favorezcan el
+                        crecimiento de la empresa.
+                    </p>
+                </article>
+
+                <article class="objetivo">
+                    <div class="numero">05.</div>
+                    <h4>Generar confianza</h4>
+                    <p>
+                        Mantener relaciones transparentes y responsables
+                        con los clientes.
+                    </p>
+                </article>
+
+                <article class="objetivo">
+                    <div class="numero">06.</div>
+                    <h4>Mejorar continuamente</h4>
+                    <p>
+                        Identificar oportunidades para obtener mejores
+                        resultados en cada

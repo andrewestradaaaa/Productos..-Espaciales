@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Productos | Productos Espaciales</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f8fb;
+            color: #263746;
+        }
+
+        header {
+            background: linear-gradient(135deg, #123456, #087e8b);
+            color: white;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-size: 27px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #b9f3ed;
+        }
+
+        .presentacion {
+            text-align: center;
+            padding: 65px 20px 45px;
+            background-color: white;
+        }
+
+        .presentacion h2 {
+            font-size: 36px;
+            color: #123456;
+            margin-bottom: 15px;
+        }
+
+        .presentacion p {
+            font-size: 17px;
+            color: #607080;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .linea {
+            width: 75px;
+            height: 4px;
+            background-color: #08a6a6;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        .catalogo {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 45px 20px 65px;
+        }
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .producto {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(18, 52, 86, 0.10);
+            padding: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(18, 52, 86, 0.16);
+        }
+
+        .imagen-producto {
+            width: 100%;
+            height: 230px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 18px;
+            border-radius: 10px;
+            background-color: #f7fafc;
+        }
+
+        .producto h3 {
+            font-size: 23px;
+            color: #123456;
+            margin-bottom: 12px;
+        }
+
+        .descripcion {
+            color: #6c7b88;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 44px;
+            margin-bottom: 15px;
+        }
+
+        .precio {
+            color: #078b8b;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: #087e8b;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #123456;
+        }
+
+        .beneficios {
+            background-color: #e3f4f4;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .beneficios h2 {
+            color: #123456;
+            margin-bottom: 12px;
+            font-size: 25px;
+        }
+
+        .beneficios p {
+            color: #526b78;
+            line-height: 1.8;
+        }
+
+        .contacto {
+            background-color: #123456;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .contacto h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .contacto p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .boton-claro {
+            display: inline-block;
+            background-color: white;
+            color: #123456;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #0b263e;
+            color: #dce8f0;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .productos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .presentacion h2 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .productos {
+                grid-template-columns: 1fr;
+            }
+
+            .producto {
+                max-width: 380px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .presentacion h2 {
+                font-size: 27px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>Productos Espaciales</h1>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- PRESENTACIÓN -->
+    <section class="presentacion">
+        <h2>Nuestros Productos</h2>
+        <div class="linea"></div>
+
+        <p>
+            Descubre nuestros productos de limpieza, ideales para ayudarte
+            a mantener tus espacios limpios, frescos y agradables.
+            Conoce nuestras opciones y sus precios.
+        </p>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <main class="catalogo">
+        <div class="productos">
+
+            <!-- PRODUCTO 1: CLORO -->
+            <article class="producto">
+
+                <img
+                    src="https://merkapp.myshopify.com/cdn/shop/products/julio_-_2023-12_1702657018.jpg?v=1709578834"
+                    alt="Imagen del cloro"
+                    class="imagen-producto"
+                >
+
+                <h3>Cloro</h3>
+
+                <p class="descripcion">
+                    Producto de limpieza para el hogar.
+                </p>
+
+                <p class="precio">$3.50</p>
+
+                <a href="#contacto" class="boton">Consultar</a>
+
+            </article>
+
+            <!-- PRODUCTO 2: DESINFECTANTE -->
+            <article class="producto">
+
+                <img
+                    src="https://hebmx.vtexassets.com/arquivos/ids/776748-800-800?v=638492131420470000&width=800&height=800&aspect=true"
+                    alt="Imagen del desinfectante"
+                    class="imagen-producto"
+                >
+
+                <h3>Desinfectante</h3>
+
+                <p class="descripcion">
+                    Para la limpieza de diferentes superficies.
+                </p>
+
+                <p class="precio">$4.50</p>
+
+                <a href="#contacto" class="boton">Consultar</a>
+
+            </article>
+
+            <!-- PRODUCTO 3: JABÓN LÍQUIDO -->
+            <article class="producto">
+
+                <img
+                    src="https://tse3.mm.bing.net/th/id/OIP.W4j8m8BmkQ7fiMPd_aP8cAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="Imagen del jabón líquido"
+                    class="imagen-producto"
+                >
+
+                <h3>Jabón líquido</h3>
+
+                <p class="descripcion">
+                    Una opción práctica para la limpieza diaria.
+                </p>
+
+                <p class="precio">$5.00</p>
+
+                <a href="#contacto" class="boton">Consultar</a>
+
+            </article>
+
+        </div>
+    </main>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios">
+        <h2>Calidad y limpieza para tus espacios</h2>
+
+        <p>
+            Encuentra productos para tus necesidades de limpieza
+            en un solo lugar.
+        </p>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <h2>¿Te interesa alguno de nuestros productos?</h2>
+
+        <p>
+            Contáctanos para obtener más información sobre nuestros productos.
+        </p>
+
+        </a>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>
+            &copy; 2026 Productos Espaciales.
+            Todos los derechos reservados.
+        </p>
+    </footer>
+
+</body>
+</html>

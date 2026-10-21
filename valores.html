@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuestros Valores | Productos Espaciales</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f3f8fc;
+            color: #263746;
+        }
+
+        /* PORTADA */
+        .hero {
+            min-height: 330px;
+            padding: 65px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                radial-gradient(circle at top right, #c9e8f5, transparent 38%),
+                linear-gradient(135deg, #e3f1fa, #f8fbff);
+        }
+
+        .hero-contenido {
+            max-width: 760px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            color: #176b83;
+            background: #d2eef5;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            color: #123456;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #078baf;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #607688;
+        }
+
+        /* INTRODUCCIÓN */
+        .introduccion {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            padding: 55px 22px 35px;
+        }
+
+        .introduccion h2 {
+            font-size: 29px;
+            color: #123456;
+            margin-bottom: 15px;
+        }
+
+        .introduccion p {
+            color: #667b8b;
+            line-height: 1.8;
+        }
+
+        .linea {
+            height: 4px;
+            width: 65px;
+            border-radius: 5px;
+            background: #08a6b5;
+            margin: 18px auto;
+        }
+
+        /* TARJETAS DE VALORES */
+        .valores {
+            max-width: 1150px;
+            margin: auto;
+            padding: 25px 22px 75px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .tarjeta {
+            position: relative;
+            background: white;
+            border: 1px solid #dce9f2;
+            border-radius: 18px;
+            padding: 30px 25px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(18, 52, 86, 0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(18, 52, 86, 0.14);
+        }
+
+        .numero {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 43px;
+            font-weight: bold;
+            color: #edf4fa;
+        }
+
+        .icono {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #e3f2fa;
+            border-radius: 17px;
+            font-size: 31px;
+            margin-bottom: 23px;
+        }
+
+        .tarjeta h3 {
+            color: #17496e;
+            font-size: 21px;
+            margin-bottom: 13px;
+        }
+
+        .tarjeta p {
+            color: #718293;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* FRASE FINAL */
+        .frase {
+            margin: 0 7% 65px;
+            background: linear-gradient(135deg, #123456, #087e8b);
+            color: white;
+            padding: 45px 25px;
+            text-align: center;
+            border-radius: 22px;
+        }
+
+        .frase .comillas {
+            color: #69d4dc;
+            font-size: 45px;
+            line-height: 1;
+        }
+
+        .frase h2 {
+            font-size: 27px;
+            margin: 12px 0;
+        }
+
+        .frase p {
+            color: #e0f1f7;
+            line-height: 1.8;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background: #0b263e;
+            color: #dce8f0;
+            padding: 25px 15px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #69d4dc;
+        }
+
+        /* DISEÑO RESPONSIVE */
+        @media (max-width: 850px) {
+            .valores {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .valores {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .introduccion h2 {
+                font-size: 25px;
+            }
+
+            .frase {
+                margin: 0 20px 40px;
+                padding: 35px 20px;
+            }
+
+            .frase h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PORTADA -->
+    <section class="hero">
+        <div class="hero-contenido">
+            <span class="etiqueta">NUESTRA ESENCIA</span>
+
+            <h1>
+                Los valores que<br>
+                <span>nos representan</span>
+            </h1>
+
+            <p>
+                Creemos que la confianza se construye con acciones,
+                responsabilidad y compromiso en cada uno de nuestros servicios.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="introduccion">
+        <h2>Lo que nos hace diferentes</h2>
+
+        <div class="linea"></div>
+
+        <p>
+            En Productos Espaciales trabajamos guiados por principios
+            que reflejan nuestra manera de atender, ofrecer nuestros
+            productos y relacionarnos con cada cliente.
+        </p>
+    </section>
+
+    <!-- TARJETAS DE VALORES -->
+    <main class="valores">
+
+        <article class="tarjeta">
+            <span class="numero">01</span>
+            <div class="icono">🤝</div>
+            <h3>Responsabilidad</h3>
+            <p>
+                Cumplimos nuestros compromisos y realizamos nuestro
+                trabajo con seriedad, dedicación y cuidado.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <span class="numero">02</span>
+            <div class="icono">💙</div>
+            <h3>Honestidad</h3>
+            <p>
+                Actuamos con transparencia y sinceridad, ofreciendo
+                información clara sobre nuestros productos.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <span class="numero">03</span>
+            <div class="icono">⭐</div>
+            <h3>Calidad</h3>
+            <p>
+                Buscamos ofrecer productos que respondan a las
+                necesidades de nuestros clientes.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <span class="numero">04</span>
+            <div class="icono">🌊</div>
+            <h3>Compromiso</h3>
+            <p>
+                Nos esforzamos por mejorar continuamente y brindar
+                una atención responsable en cada oportunidad.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <span class="numero">05</span>
+            <div class="icono">💬</div>
+            <h3>Respeto</h3>
+            <p>
+                Escuchamos las opiniones de nuestros clientes y
+                mantenemos un trato amable y cordial.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <span class="numero">06</span>
+            <div class="icono">✨</div>
+            <h3>Innovación</h3>
+            <p>
+                Buscamos nuevas ideas y formas de mejorar nuestros
+                productos y la experiencia de nuestros clientes.
+            </p>
+        </article>
+
+    </main>
+
+    <!-- FRASE FINAL -->
+    <section class="frase">
+        <div class="comillas">“</div>
+
+        <h2>Más que productos, ofrecemos confianza.</h2>
+
+        <p>
+            Nuestros valores son la base de cada decisión y el camino
+            para seguir creciendo junto a nuestros clientes.
+        </p>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>
+            &copy; 2026 <span>Productos Espaciales</span>.
+            Todos los derechos reservados.
+        </p>
+
+        <p>Calidad · Confianza · Compromiso</p>
+    </footer>
+
+</body>
+</html>
